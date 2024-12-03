@@ -52,6 +52,7 @@ jobs:
 
       - name: Debug file copy result
         run: |
+          pwd
           ls -la 
           ls -la /opt/
           ls -la /opt/tomcat/
