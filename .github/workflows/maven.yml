@@ -48,7 +48,7 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H $HOSTNAME >> ~/.ssh/known_hosts
           scp -i ~/.ssh/id_rsa target/*.war ubuntu@${{ secrets.SSH_HOST }}:/home/ubuntu/
-          continue-on-error: true
+        continue-on-error: true
 
       - name: Debug file copy result
         run: |
