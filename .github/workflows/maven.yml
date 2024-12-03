@@ -48,6 +48,16 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H $HOSTNAME >> ~/.ssh/known_hosts
           scp -i ~/.ssh/id_rsa target/*.war ubuntu@${{ secrets.SSH_HOST }}:/home/ubuntu/
+          continue-on-error: true
+
+      - name: Debug file copy result
+        run: |
+          ls -la /var/lib/tomcat9
+          ls -la /var/lib/tomcat9/webapps/
+          ls -la /opt/tomcat/
+          ls -la /opt/tomcat/apache-tomcat-9.0.21/
+          ls -la /opt/tomcat/apache-tomcat-9.0.21/webapps
+          
       - name: Copy WAR file to Tomcat webapps
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
