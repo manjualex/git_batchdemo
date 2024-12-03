@@ -52,6 +52,8 @@ jobs:
 
       - name: Debug file copy result
         run: |
+          ls -la 
+          ls -la /opt/
           ls -la /opt/tomcat/
           ls -la /opt/tomcat/apache-tomcat-9.0.21/
           ls -la /opt/tomcat/apache-tomcat-9.0.21/webapps
