@@ -49,23 +49,6 @@ jobs:
           ssh-keyscan -H $HOSTNAME >> ~/.ssh/known_hosts
           scp -i ~/.ssh/id_rsa target/*.war ubuntu@${{ secrets.SSH_HOST }}:/home/ubuntu/
         continue-on-error: true
-
-      - name: Debug file copy result
-        run: |
-          echo "pwd"
-          pwd
-          echo "ls -la"
-          ls -la 
-          echo "ls -la /home/"
-          ls -la /home/
-          echo "ls -la /home/ubuntu/"
-          ls -la /home/ubuntu/
-          echo "ls -la /opt/"
-          ls -la /opt/
-          echo "ls -la /opt/tomcat/"
-          ls -la /opt/tomcat/
-          ls -la /opt/tomcat/apache-tomcat-9.0.21/
-          ls -la /opt/tomcat/apache-tomcat-9.0.21/webapps
           
       - name: Copy WAR file to Tomcat webapps
         env:
